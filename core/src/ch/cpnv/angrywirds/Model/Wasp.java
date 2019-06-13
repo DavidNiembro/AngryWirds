@@ -3,6 +3,7 @@ package ch.cpnv.angrywirds.Model;
 import com.badlogic.gdx.math.Vector2;
 
 import ch.cpnv.angrywirds.AngryWirds;
+import ch.cpnv.angrywirds.Root;
 
 public class Wasp extends MovingObject {
 
@@ -18,7 +19,7 @@ public class Wasp extends MovingObject {
     @Override
     public void accelerate(float dt) {
         // The wasp only slightly alters its speed at random. It is subject to gravity, but it counters it with its flight
-        speed.x += (AngryWirds.alea.nextFloat()-getX()/AngryWirds.WORLD_WIDTH)*AGITATION; // the closer it is to a border, the higher the chances that acceleration goes the other way
-        speed.y += (AngryWirds.alea.nextFloat()-getY()/AngryWirds.WORLD_HEIGHT)*AGITATION;
+        speed.x += (Root.alea.nextFloat()-getX()/AngryWirds.WORLD_WIDTH)*AGITATION; // the closer it is to a border, the higher the chances that acceleration goes the other way
+        speed.y += (Root.alea.nextFloat()-getY()/AngryWirds.WORLD_HEIGHT)*AGITATION;
     }
 }
