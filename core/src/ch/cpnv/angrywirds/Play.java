@@ -12,6 +12,7 @@ import java.util.Random;
 
 import ch.cpnv.angrywirds.Model.Bird;
 import ch.cpnv.angrywirds.Model.Bloc;
+import ch.cpnv.angrywirds.Model.Bubble;
 import ch.cpnv.angrywirds.Model.PhysicalObject;
 import ch.cpnv.angrywirds.Model.Pig;
 import ch.cpnv.angrywirds.Model.Scenery;
@@ -132,8 +133,14 @@ public class Play extends GameActivity implements InputProcessor {
 
         Vector3 pointTouched = camera.unproject(new Vector3(screenX, screenY, 0));
         PhysicalObject Touched = scenery.touched(pointTouched.x, pointTouched.y);
+
         if(Touched != null ){
 
+                try {
+                    scenery.addElement(new Bubble(new Vector2(pointTouched.x-150, pointTouched.y+50),"text",10));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
         }else{
             if (screenY > 200) {
                 if (bird.isFrozen()) {
